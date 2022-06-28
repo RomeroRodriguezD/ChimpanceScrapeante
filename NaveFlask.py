@@ -635,7 +635,7 @@ def get_table_viviendas(): # ESTA ES LA BUENA
     output.headers["Content-type"] = "text/csv"
     return output
 
-@app.route("/download_viviendas", methods=['GET','POST'])
+@app.route("/download_habitaciones", methods=['GET','POST'])
 
 def get_table_habitaciones(): # ESTA ES LA BUENA
 
