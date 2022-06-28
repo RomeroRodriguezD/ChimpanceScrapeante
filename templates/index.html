@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimpancé Scrapeante</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="static/css/templatemo-style.css">
+    <style>
+
+        h1 { color: #b48608; font-family: 'Droid serif', serif; font-size: 35px;
+        font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px;
+        }
+
+        img {
+              width: 400px;
+              height: 250px;
+        }
+
+         .dropdown-menu {
+            width:100%;
+            text-align: center;
+         }
+
+        .list-bullets {
+            list-style: none;
+        }
+
+        .list-bullets li {
+            display: flex;
+            align-items: center;
+        }
+
+        .list-bullets li::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #5784d7;
+            border: 2px solid #8fb3f5;
+            display: inline;
+            margin-right: 1rem;
+        }
+
+        ul#cities li {
+
+        width=290px;
+
+        }
+
+         ul#cities li a:link {
+          color: green;
+          background-color: transparent;
+          text-decoration: none;
+        }
+
+        ul#cities li a:visited {
+          color: blue;
+          background-color: transparent;
+          text-decoration: none;
+        }
+
+        ul#cities li a:hover {
+          color: green;
+          background-color: transparent;
+          text-decoration: none;
+        }
+
+        ul#cities li a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: none;
+        }
+
+        a {
+
+        text-decoration: none;
+        color: white;
+        }
+
+        a:hover {
+
+        text-decoration: none;
+        color: white;
+
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 50%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: block;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit/register button */
+        .registerbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 50%;
+          opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+          opacity:1;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{{url_for('index')}}">Chimpancé Scrapeante</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tipologías de inmuebles
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item"><a class="dropdown-item" href="{{url_for('viviendas')}}">Viviendas</a></li>
+                <li class="nav-item"><a class="dropdown-item" href="{{url_for('habitaciones')}}" >Habitaciones</a></li>
+                <li class="nav-item"><a class="dropdown-item" href="{{url_for('index')}}">Naves industriales</a></li>
+
+            </ul>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="row">
+    <div class="col-4"></div>
+
+    <div class="col-6">
+<div class="container-fluid justify-content-center" style="padding-top: 20px;">
+    <h1>Búsqueda de naves en Idealista</h1>
+    <br>
+
+
+    <form method='post' action="{{url_for('scrapear_naves')}}">
+
+        <label for="ciudad"><b>Ciudad</b></label>
+        <input type="text" placeholder="Introduce el nombre de la ciudad en formato URL de Idealista" name="ciudad" id="ciudad" value="ciudad" required>
+        <hr>
+        <label for="provincia"><b>Provincia</b></label>
+        <input type="text" placeholder="Introduce el nombre de la provincia" name="provincia" id="provincia" value="provincia" required>
+        <hr>
+        <fieldset>
+        <legend>Selecciona un regimen:</legend>
+
+        <div>
+          <input type="radio" id="venta" name="regimen" value="venta"
+                 checked>
+          <label for="venta">Venta</label>
+        </div>
+
+        <div>
+          <input type="radio" id="alquiler" name="regimen" value="alquiler">
+          <label for="alquiler">Alquiler</label>
+        </div>
+
+    </fieldset>
+
+        <button type="submit" class="registerbtn" value="scrapear" style="width: 180px; height:80px;">Scrapear</button>
+    </form>
+</div>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
