@@ -122,6 +122,20 @@
         .registerbtn:hover {
           opacity:1;
         }
+
+         @media (max-width: 480px) {
+
+        #letrero {
+            font-size: 20px;}
+        #label2, #label1 {
+            width: 250px;
+        }
+        #padel {
+
+            padding-left: 100px;
+        }
+        }
+
     </style>
 </head>
 <body>
@@ -156,21 +170,21 @@
 </nav>
 
 <div class="row">
-    <div class="col-4"></div>
+    <div class=" col-lg-4 col-sm-6"></div>
 
-    <div class="col-6">
-<div class="container-fluid justify-content-center" style="padding-top: 20px;">
-    <h1>Búsqueda de viviendas en Idealista</h1>
+    <div class="col-lg-6 col-sm-6">
+<div id="padel" class="container-fluid justify-content-center" style="padding-top: 20px;">
+    <h1 id="letrero">Búsqueda de viviendas en Idealista</h1>
     <br>
 
 
     <form method='post' action="{{url_for('scrapear_viviendas')}}">
 
         <label for="ciudad"><b>Ciudad</b></label>
-        <input type="text" placeholder="Introduce el nombre de la ciudad en formato URL de Idealista" name="ciudad" id="ciudad" value="ciudad" required>
+        <input id="label1" type="text" placeholder="Introduce el nombre de la ciudad en formato URL de Idealista" name="ciudad" id="ciudad" value="ciudad" required>
         <hr>
         <label for="provincia"><b>Provincia</b></label>
-        <input type="text" placeholder="Introduce el nombre de la provincia" name="provincia" id="provincia" value="provincia" required>
+        <input id="label2" type="text" placeholder="Introduce el nombre de la provincia" name="provincia" id="provincia" value="provincia" required>
         <hr>
         <fieldset>
         <legend>Selecciona un regimen:</legend>
