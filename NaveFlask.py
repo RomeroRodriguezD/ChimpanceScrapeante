@@ -590,7 +590,7 @@ def scrapear_habitaciones():
             global exportar
             exportar = json.loads(query_table.to_json(orient='records'))
 
-            return render_template('blog_viviendas.html', posts=exportar, nombre=ciudad_label)
+            return render_template('blog_habitaciones.html', posts=exportar, nombre=ciudad_label)
     except:
         return render_template('criterios.html')
 
