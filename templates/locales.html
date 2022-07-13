@@ -3,9 +3,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de habitaciones</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <title>Búsqueda de locales</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="static/css/templatemo-style.css">
     <style>
@@ -136,6 +135,7 @@
             padding-left: 100px;
         }
         }
+
     </style>
 </head>
 <body>
@@ -175,20 +175,31 @@
 
     <div class="col-lg-6 col-sm-6">
 <div id="padel" class="container-fluid justify-content-center" style="padding-top: 20px;">
-    <h1 id="letrero">Búsqueda de habitaciones en Idealista</h1>
+    <h1 id="letrero">Búsqueda de locales en Idealista</h1>
     <br>
 
 
-    <form method='post' action="{{url_for('scrapear_habitaciones')}}">
+    <form method='post' action="{{url_for('scrapear_locales')}}">
 
         <label for="ciudad"><b>Ciudad</b></label>
         <input id="label1" type="text" placeholder="Introduce el nombre de la ciudad en formato URL de Idealista" name="ciudad" id="ciudad" value="ciudad" required>
         <hr>
-        <label  for="provincia"><b>Provincia</b></label>
+        <label for="provincia"><b>Provincia</b></label>
         <input id="label2" type="text" placeholder="Introduce el nombre de la provincia" name="provincia" id="provincia" value="provincia" required>
         <hr>
         <fieldset>
+        <legend>Selecciona un regimen:</legend>
 
+        <div>
+          <input type="radio" id="venta" name="regimen" value="venta"
+                 checked>
+          <label for="venta">Venta</label>
+        </div>
+
+        <div>
+          <input type="radio" id="alquiler" name="regimen" value="alquiler">
+          <label for="alquiler">Alquiler</label>
+        </div>
 
     </fieldset>
 
