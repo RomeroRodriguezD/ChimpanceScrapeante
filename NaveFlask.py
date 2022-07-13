@@ -190,9 +190,9 @@ def scrapear_naves():
                         item2 = str(i).strip(' ') #Strip spaces from each "item-detail"
                         item2 = str(item2.strip('.'))
                         item2 = str(item2.strip(','))
-                        if len(item2) <=6: # If it has 3 numbers its a valid m2 value.
+                        if len(item2) <=10: # If it has 3 numbers its a valid m2 value.
                             metros_finales.append((item2))
-                        elif len(item2)==2:
+                        elif len(item2)==0:
                            # if int(item2)>25:  # Filter needed to avoid getting 2 rows from very big houses because they have 10 or more rooms.
                             metros_finales.append((item2))
                         break
