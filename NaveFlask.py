@@ -236,7 +236,7 @@ def scrapear_naves():
             query4 = 'DROP TABLE IF EXISTS webdatabase.temporal;'
             cursor.execute(query4)
             new_connection.commit()
-            query1 = 'CREATE TABLE webdatabase.temporal( id serial NOT NULL, precio numeric, calle text, enlace text,descripciones text,m2 numeric,PRIMARY KEY (id));'
+            query1 = 'CREATE TABLE webdatabase.temporal( id serial NOT NULL, precio text, calle text, enlace text,descripciones text,m2 text,PRIMARY KEY (id));'
             cursor.execute(query1)
             new_connection.commit()
 
@@ -396,7 +396,7 @@ def scrapear_viviendas():
             query4 = 'DROP TABLE IF EXISTS webdatabase.temporal;'
             cursor.execute(query4)
             new_connection.commit()
-            query1 = 'CREATE TABLE webdatabase.temporal( id serial NOT NULL, precio numeric, calle text, enlace text,descripciones text,m2 numeric,PRIMARY KEY (id));'
+            query1 = 'CREATE TABLE webdatabase.temporal( id serial NOT NULL, precio text, calle text, enlace text,descripciones text,m2 text,PRIMARY KEY (id));'
             cursor.execute(query1)
             new_connection.commit()
             print(base_url)
@@ -561,7 +561,7 @@ def scrapear_habitaciones():
             query4 = 'DROP TABLE IF EXISTS webdatabase.temporal;'
             cursor.execute(query4)
             new_connection.commit()
-            query1 = 'CREATE TABLE webdatabase.temporal( id serial NOT NULL, precio numeric, calle text, enlace text,descripciones text,m2 numeric,PRIMARY KEY (id));'
+            query1 = 'CREATE TABLE webdatabase.temporal( id serial NOT NULL, precio text, calle text, enlace text,descripciones text,m2 text,PRIMARY KEY (id));'
             cursor.execute(query1)
             new_connection.commit()
 
